@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ID Card</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #F0F0F0;
+			padding: 0;
+			margin: 0;
+		}
+		.container {
+			width: 320px;
+			height: 200px;
+			background-color: #FFFFFF;
+			margin: 20px auto;
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+			padding: 20px;
+			position: relative;
+		}
+		.photo {
+			width: 80px;
+			height: 100px;
+			background-color: #CCCCCC;
+			float: left;
+			margin-right: 10px;
+			border: 1px solid #333333;
+		}
+		.info {
+			float: left;
+			width: 200px;
+		}
+		.info h2 {
+			font-size: 1.2em;
+			margin: 0 0 10px 0;
+		}
+		.info p {
+			margin: 0;
+			line-height: 1.5em;
+			font-size: 0.9em;
+		}
+		.barcode {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 100px;
+			height: 30px;
+			background-color: #CCCCCC;
+			border: 1px solid #333333;
+			text-align: center;
+			line-height: 30px;
+			font-size: 0.9em;
+			font-weight: bold;
+			color: #333333;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="photo"><img src="{{ image.url }}" alt="" width="80x" height="100px"></div>
+		<div class="info">
+			<h2 id="name1">{{ name }}</h2>
+			<p>Address: {{ address }},{{ city }}</p>
+			<p>Mobile: {{ mobile }}</p>
+			<p>Email: {{ email }}</p>
+            <div><img src="{{ sign.url }}" alt="" width="100x" height="80px"></div>
+		</div>
+		<div class="barcode">{{ randomNumber }}
+		</div>
+	</div>
+
+
+</body>
+</html>
